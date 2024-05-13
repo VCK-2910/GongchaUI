@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="./Cart.css">
+</head>
+<body>
+    <div class='wrapper'>
+        <div class='header'>
+            <div class='header-logo'>
+                <a href='../../index.html' class='header-logo-container'>
+                    <img class ='header-logo-content' src='../../assets/images/logo 1.svg' alt="GongCha" />
+                </a>
+            </div>
+            <div class='navbar'>
+                <div class='navbar-item'>
+                    <a href='../../index.html' class='navbar-container'>
+                        <p class ='navbar-content'>TRANG CHỦ</p>
+                    </a>
+                </div>
+                <div class='navbar-item'>
+                    <a href='./About.html' class='navbar-container'>
+                        <p class ='navbar-content'>GIỚI THIỆU</p>
+                    </a>
+                </div>
+                <div class='navbar-item'>
+                    <a href='../Product/Product.html' class='navbar-container'>
+                        <p class ='navbar-content'>THỰC ĐƠN</p>
+                    </a>
+                </div>
+                <div class ='navbar-item'>
+                    <a href='../Connect/Connect.html' class='navbar-container'>
+                        <p class ='navbar-content'>LIÊN HỆ</p>
+                    </a>
+                </div>
+                <div class='navbar-item'>
+                        <div class='search'>
+                            <input placeholder="Nhập sản phẩm..." />
+                            <button class='search-btn'>
+                                <img src="../../assets/icons/searchIcon.svg">
+                            </button>
+                        </div>
+                </div>
+            </div>
+            <div class='action'>
+                    <!-- <a href={config.routes.profile} class ='action-container'>
+                        <UserIcon class ='user-icon'></UserIcon>
+                        <p class ='navbar-container'>{userName}</p>
+                    </a> -->
+           
+                    <a href='/Page/Login/Login.html' class='action-container'>
+                        <p class ='navbar-container'>ĐĂNG NHẬP</p>
+                    </a>
+            </div>
+        </div>
+
+        <div class='pageheading-container'>
+            <img class='pageheading-img' src='../../assets/images/cartPageHeading.svg' alt="PageHeading" />
+            <div class='pageheading-content'>
+                <h2 class='pageheading-title'>GIỎ HÀNG</h2>
+                <p class='pageheading-desc'>Thanh toán và nhận hàng ngay trong ngày</p>
+            </div>
+            <div class='breadcrumb'>
+                <a href='../../index.html'>
+                    <div class='breadcrumb-home-icon'>
+                        <img src="../../assets/icons/homeIcon.svg"/>
+                    </div>
+                </a>
+                <div class='breadcrumb-play-icon'>
+                    <div class='playicon'>
+                        <img src="../../assets/icons/halfplayIcon2.svg"/>
+                        <img src="../../assets/icons/halfplayIcon1.svg"/>
+                    </div>
+                </div>
+                <div class='breadcrumb-title'>Giỏ hàng</div>
+            </div>
+        </div>
+
+        <!-- cart -->
+        <div class="cart">
+            <div class="cart-container">
+                <div class="cart-heading">
+                    <div class="cart-heading-name">Sản phẩm</div>
+                    <div class="cart-heading-price">Đơn giá</div>
+                    <div class="cart-heading-quantity">Số lượng</div>
+                    <div class="cart-heading-total">Thành tiền</div>
+                    <div class="cart-heading-action">Thao tác</div>
+                </div>
+                <div class="cart-product">
+                    <ul class="cart-items">
+                        <!-- <li class="cart-item">
+                            <div class="item-name">
+                                <div class="product-img-container">
+                                    <img class="product-img" src="../../assets/images/icecream1.svg" alt=""> 
+                                </div>
+                                <p class="product-name">Kem Trà Sữa & Trân Châu Đen</p>
+                            </div>
+                            <div class="item-price">
+                                35.000
+                                <span>đ</span>
+                            </div>
+                            <div class="item-quantity">
+                                <div class="qty-input">
+                                    <button class="qty-count qty-count--minus" data-action="minus" type="button">-</button>
+                                    <input class="product-qty" type="number" name="product-qty" min="0" max="10" value="1">
+                                    <button class="qty-count qty-count--add" data-action="add" type="button">+</button>
+                                </div>
+                            </div>
+                            <div class="item-total">
+                                35.000
+                                <span>đ</span>
+                            </div>
+                            <div class="item-action">
+                                <div class="action-remove">
+                                    <svg class="svg-icon" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.38854 0L0 5.38854L2.75159 8.14013L9.55414 15.0573L2.75159 21.8599L0 24.4968L5.38854 30L8.14013 27.2484L15.0573 20.3312L21.8599 27.2484L24.4968 30L30 24.4968L27.2484 21.8599L20.3312 15.0573L27.2484 8.14013L30 5.38854L24.4968 0L21.8599 2.75159L15.0573 9.55414L8.14013 2.75159L5.38854 0Z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </li> -->
+                        <!-- <li class="no-cart-item">
+                            mua đồ đi
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="payment-container">
+                <div class="voucher-wrapper">
+                    <div class="voucher-container">
+                        <input class="voucher-input" type="text" placeholder="Nhập voucher">
+                        <button class="voucher-apply">Apply</button>
+                    </div>
+                </div>
+                <div class="pay-wrapper">
+                    <div class="pay-details">
+                        <div class="pay-products-container">
+                            <h4 class="pay-products-desc">Tổng tiền hàng:</h4>
+                            <p class="pay-products">30.000
+                                <span>đ</span>
+                            </p>
+                        </div>
+                        <div class="pay-ship-container">
+                            <h4 class="pay-ship-desc">Phí vận chuyển:</h4>
+                            <p class="pay-ship">30.000
+                                <span>đ</span>
+                            </p>
+                        </div>
+                        <div class="pay-voucher-container">
+                            <h4 class="pay-voucher-desc">Voucher giảm giá:</h4>
+                            <p class="pay-voucher">30.000
+                                <span>đ</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pay-total-container">
+                        <h4 class="pay-total-desc">Tổng thanh toán:</h4>
+                        <div class="total-container">
+                            <p class="pay-total">30.000</p>
+                            <span>đ</span>
+                        </div>
+                    </div>
+                    <div class="pay-methods">
+                        <img src="../../assets/images/payMethod1.svg" alt="payMethod1">
+                        <img src="../../assets/images/payMethod2.svg" alt="payMethod2">
+                        <img src="../../assets/images/payMethod3.svg" alt="payMethod3">
+                        <img src="../../assets/images/payMethod4.svg" alt="payMethod4">
+                    </div>
+                    <div class="pay-submit-container">
+                        <p class="pay-submit">thanh toán</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class='footer'>
+            <div class='footer-logo'>
+                <a href='../../index.html' class='footer-logo-container'>
+                    <img src="../../assets/icons/logo.svg" class='footer-logo-content'/>
+                </a>
+                <p class='footer-logo-desc'>COPYRIGHT © 2024 GONG CHA VIỆT NAM</p>
+            </div>
+            <div class='contact'>
+                <div class='contact-container'>
+                    <h2 class='contact-title'>Giờ mở cửa</h2>
+                    <p class='contact-content'>Thứ 2-6: 8h00 am - 22h00 pm</p>
+                    <p class='contact-content'>Thứ 7-CN: 9h00 am - 21h00 pm</p>
+                </div>
+                <div class='contact-container'>
+                    <h2 class='contact-title'>Thông tin liên hệ</h2>
+                    <p class='contact-content'>1900.63.69.36</p>
+                    <p class='contact-content'>0386550869</p>
+                </div>
+                <div class='contact-social-container'>
+                    <a href="../../index.html" class='contact-social'>
+                        <img src="../../assets/icons/mailIcon.svg" class='contact-icon'/>
+                        <p>info@gongcha.com.vn</p>
+                    </a>
+                    <a href="../../index.html" class='contact-social'>
+                        <img src="../../assets/icons/facebookIcon.svg" class='contact-icon'/>
+                        <p>Gong Cha Vietnam</p>
+                    </a>
+                    <a href="../../index.html" class='contact-social'>
+                        <img src="../../assets/icons/instaIcon.svg" class='contact-icon'/>
+                        <p>@gongchavietnam</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./Cart.js"></script>
+</html>

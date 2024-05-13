@@ -1,0 +1,96 @@
+const stringifyProducts = [
+    {
+        id: 1,
+        name: 'Kem Trà Sữa & Trân Châu Đen',
+        imgSrc: '../assets/images/icecream1.svg',
+        price: 35000,
+        category: 'ice-cream',
+    },
+    {
+        id: 2,
+        name: 'Kem Trà Sữa',
+        imgSrc: '../assets/images/icecream2.svg',
+        price: 30000,
+        category: 'ice-cream',
+    },
+    {
+        id: 3,
+        name: 'Trà Quýt Yakult',
+        imgSrc: '../assets/images/fruitTea1.svg',
+        price: 65000,
+        category: 'Fruit tea',
+    },
+    {
+        id: 4,
+        name: 'Trà Sữa Quýt Yuzu',
+        imgSrc: '../assets/images/fruitTea2.svg',
+        price: 65000,
+        category: 'Fruit tea',
+    },
+    {
+        id: 5,
+        name: 'Trà Quýt Yuzu',
+        imgSrc: '../assets/images/fruitTea3.svg',
+        price: 62000,
+        category: 'Fruit tea',
+    },
+    {
+        id: 6,
+        name: 'Grape Green Tea',
+        imgSrc: '../assets/images/fruitTea4.svg',
+        price: 56000,
+        category: 'Fruit tea',
+    },
+    {
+        id: 7,
+        name: 'Trà Alisan Trái  Cây',
+        imgSrc: '../assets/images/fruitTea5.svg',
+        price: 54000,
+        category: 'Fruit tea',
+    },
+    {
+        id: 8,
+        name: 'Chanh Ai-yu và Chân Trâu Trắng',
+        imgSrc: '../assets/images/fruitTea6.svg',
+        price: 52000,
+        category: 'Fruit tea',
+    },
+    {
+        id: 9,
+        name: 'Chanh Ai-yu và Chân Trâu Trắng',
+        imgSrc: '../assets/images/fruitTea7.svg',
+        price: 52000,
+        category: 'Fruit tea',
+    },
+    {
+        id: 10,
+        name: 'Trà Oolong Vải',
+        imgSrc: '../assets/images/fruitTea8.svg',
+        price: 52000,
+        category: 'Fruit tea',
+    },
+    {
+        id: 11,
+        name: 'Trà Alisan Vải',
+        imgSrc: '../assets/images/fruitTea9.svg',
+        price: 52000,
+        category: 'Fruit tea',
+    },
+    {
+        id: 12,
+        name: 'Trà Đen Đào',
+        imgSrc: '../assets/images/fruitTea10.svg',
+        price: 54000,
+        category: 'Fruit tea',
+    },
+    {
+        id: 13,
+        name: 'Trà Xanh Đào',
+        imgSrc: '../assets/images/fruitTea11.svg',
+        price: 54000,
+        category: 'Fruit tea',
+    },
+];
+
+const localStorageProducts = JSON.stringify(stringifyProducts);
+localStorage.setItem('localProducts', localStorageProducts);
