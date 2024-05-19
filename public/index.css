@@ -366,6 +366,7 @@
 
 .more {
     position: relative;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -411,10 +412,19 @@
     }
 }
 
+
+.more-img-cotainer {
+    display: block;
+    width: 100vw; 
+    height: 50vw; 
+    overflow: hidden;
+}
+
 .more-img {
     width: 100%;
-    height: 100%;
-    border: 1px solid #ccc;
+    height: 100%; 
+    object-fit: cover;
+    object-position: center; 
 }
 
 .custom {
