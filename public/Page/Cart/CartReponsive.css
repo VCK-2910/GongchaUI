@@ -147,6 +147,7 @@
     }
 
     .cart-wrapper {
+        width: 100%;
         margin-bottom: 32px;
     }
 
@@ -421,6 +422,7 @@
     }
 
     .cart-wrapper {
+        width: 100%;
         margin-bottom: 32px;
     }
 
