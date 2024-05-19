@@ -1,3 +1,7 @@
+//set voucher
+const voucher = JSON.parse(localStorage.getItem('localVoucher'));
+
+//handle slider
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -29,6 +33,7 @@ function showSlides(n) {
     dots[slideIndex - 1].className += ' active';
 }
 
+//handle logined
 function checkLocalStorage() {
     var loginContainer = document.querySelector('.action-container');
     var prevUserAccount = JSON.parse(localStorage.getItem('prevUserAccount'));
@@ -44,7 +49,9 @@ function checkLocalStorage() {
 
         var userNamePara = document.createElement('p');
         userNamePara.setAttribute('class', 'navbar-container');
-        userNamePara.textContent = prevUserAccount.name;
+        // Lấy phần tên đầu tiên của người dùng
+        var firstName = prevUserAccount.name.split(' ')[0];
+        userNamePara.textContent = firstName;
 
         actionContainer.appendChild(userIcon);
         actionContainer.appendChild(userNamePara);
@@ -146,4 +153,110 @@ document.addEventListener('click', function (e) {
     }
 });
 
-const voucher = JSON.parse(localStorage.getItem('localVoucher'));
+//handle more
+const moreBtn = document.querySelector('.more-btn');
+moreBtn.addEventListener('click', () => {
+    window.location.href = '../../Page/About/About.html';
+});
+
+//handle go up.
+const goUpBtn = document.querySelector('.goUp-btn');
+
+function scrollFunction() {
+    if (window.scrollY > 400) {
+        goUpBtn.style.display = 'block';
+    } else {
+        goUpBtn.style.display = 'none';
+    }
+}
+
+scrollFunction();
+
+window.addEventListener('scroll', scrollFunction);
+
+goUpBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+});
+
+//handle mobile header
+const menuBtn = document.querySelector('.menu-btn');
+const mobileNavbarItems = document.querySelector('.mobile-navbar-items');
+const mobileLoginContainer = document.querySelector('.mobile-login-container');
+
+menuBtn.addEventListener('click', () => {
+    if (mobileNavbarItems.style.display === 'none' || mobileNavbarItems.style.display === '') {
+        mobileNavbarItems.style.display = 'block';
+    } else {
+        mobileNavbarItems.style.display = 'none';
+    }
+});
+
+//handle mobile logined
+function mobileLogined() {
+    var prevUserAccount = JSON.parse(localStorage.getItem('prevUserAccount'));
+    if (prevUserAccount) {
+        mobileLoginContainer.closest('li').style.display = 'none';
+        // Function to create the first li element
+        function createFirstLiElement() {
+            const profileNav = document.createElement('li');
+            profileNav.classList.add('mobile-navbar-item');
+
+            const profileContainer = document.createElement('div');
+            profileContainer.classList.add('mobile-action-container');
+
+            const profilePageLink = document.createElement('a');
+            profilePageLink.href = '/Page/Profile/Profile.html';
+            profilePageLink.classList.add('mobile-user-icon-container');
+
+            const profileIcon = document.createElement('img');
+            profileIcon.src = './assets/icons/userIcon.svg';
+            profileIcon.classList.add('mobile-user-icon');
+
+            const profiledesc = document.createElement('p');
+            profiledesc.classList.add('mobile-user-name');
+            profiledesc.textContent = 'huy';
+
+            profilePageLink.appendChild(profileIcon);
+            profilePageLink.appendChild(profiledesc);
+            profileContainer.appendChild(profilePageLink);
+            profileNav.appendChild(profileContainer);
+
+            return profileNav;
+        }
+
+        // Function to create the second li element
+        function createSecondLiElement() {
+            const cartNav = document.createElement('li');
+            cartNav.classList.add('mobile-navbar-item');
+
+            const cartContainer = document.createElement('div');
+            cartContainer.classList.add('mobile-action-container');
+
+            const cartPageLink = document.createElement('a');
+            cartPageLink.href = '/Page/Cart/Cart.html';
+            cartPageLink.classList.add('mobile-cart-container');
+
+            const cartDesc = document.createElement('p');
+            cartDesc.classList.add('mobile-navbar-content');
+            cartDesc.textContent = 'Giỏ hàng';
+
+            cartPageLink.appendChild(cartDesc);
+            cartContainer.appendChild(cartPageLink);
+            cartNav.appendChild(cartContainer);
+
+            return cartNav;
+        }
+
+        // Create the li elements
+        const profileNav = createFirstLiElement();
+        const cartNav = createSecondLiElement();
+
+        // Insert the li elements at the top of the mobile-navbar-items element
+        mobileNavbarItems.insertBefore(cartNav, mobileNavbarItems.firstChild);
+        mobileNavbarItems.insertBefore(profileNav, mobileNavbarItems.firstChild);
+    }
+}
+mobileLogined();

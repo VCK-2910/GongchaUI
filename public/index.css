@@ -1,7 +1,4 @@
-.wrapper {
-   
-    
-}
+.wrapper {}
 
 /* header */
 .header {
@@ -20,6 +17,10 @@
 }
 
 
+.mobile-header {
+    display: none;
+}
+
 .header-logo {
     /* width: 20%; */
     display: flex;
@@ -36,7 +37,6 @@
     width: 192px;
     height: 48px;
 }
-
 
 .navbar {
     /* width: 60%; */
@@ -259,8 +259,7 @@
 }
 
 /* ẩn hình ảnh cho phần tử slideshow */
-.mySlides {
-}
+.mySlides {}
 
 .next {
     width: 50px;
@@ -361,11 +360,9 @@
     padding: 24px 72px;
 }
 
-.advertise-container {
-}
+.advertise-container {}
 
-.advertise-img {
-}
+.advertise-img {}
 
 .more {
     position: relative;
@@ -410,6 +407,7 @@
         cursor: pointer;
         background-color: var(--color-red-bold);
         color: var(--white);
+        transition: 0.2s ease;
     }
 }
 
@@ -450,8 +448,7 @@
     padding: var(--padding-inner);
 }
 
-.custom-item {
-}
+.custom-item {}
 
 .custom-icon {
     padding-bottom: 40px;
@@ -462,11 +459,13 @@
 }
 
 .des {
+    margin-right: 4px;
 }
 
 .goUp-btn {
     position: fixed;
     width: fit-content;
+    display: none;
     bottom: 2.5%;
     right: 8px;
     font-size: var(--font-size);
@@ -542,8 +541,7 @@
     font-size: var(--font-size);
 }
 
-.contact-title {
-}
+.contact-title {}
 
 .contact-content {
     font-size: var(--font-size-small);
@@ -558,8 +556,7 @@
     padding: 4px;
 }
 
-.contact-content {
-}
+.contact-content {}
 
 .contact-icon {
     margin-right: 8px;

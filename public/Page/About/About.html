@@ -6,9 +6,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon.ico">
     <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="aboutReponsive.css">
     <link rel="stylesheet" href="../../assets/css/global.css">
-    <title>Document</title>
+    <title>Giới Thiệu</title>
 </head>
 <body>
     <div class='wrapper'>
@@ -60,8 +62,70 @@
             </div>
         </div>
 
+        <!-- mobile header -->
+        <div class="mobile-header">
+            <nav class="navbar">
+                <div class='mobile-header-logo'>
+                    <a href='/index.html' class ='mobile-header-logo-container'>
+                        <img class ='mobile-header-logo-content' src="../../assets/images/logoOnlyDesc.svg" alt="GongCha" />
+                    </a>
+                </div>
+                <div class="menu-btn">
+                    <a href="#" class="menu-link ">
+                        <span class="line line-1"></span>
+                        <span class="line line-2"></span>
+                        <span class="line line-3"></span>
+                    </a>
+                </div>
+                <ul class="mobile-navbar-items">
+                    <li class='mobile-navbar-item'>
+                        <a href='/Page/Login/Login.html' class='mobile-login-container'>
+                            <p class ='mobile-navbar-content'>Đăng nhập</p>
+                        </a>
+                    </li>
+                    <!-- <li class='mobile-navbar-item'> 
+                        <div class ='mobile-action-container'>
+                            <a href='/Page/Profile/Profile.html' class="mobile-user-icon-container">
+                                <img src="./assets/icons//userIcon.svg" class="mobile-user-icon">
+                                <p class = 'mobile-user-name'>huy</p>
+                            </a>
+                        </div> 
+                    </li> 
+                    <li class='mobile-navbar-item'> 
+                        <div class ='mobile-action-container'>
+                            <a href='/Page/Cart/Cart.html' class="mobile-cart-container">
+                                <p class ='mobile-navbar-content'>Giỏ hàng</p>
+                            </a>
+                        </div> 
+                    </li>  -->
+                    <li class='mobile-navbar-item'>
+                        <a href='/index.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Trang chủ</p>
+                        </a>
+                    </li>
+                    <li class='mobile-navbar-item'>
+                        <a href='../../Page/About/About.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Giới thiệu</p>
+                        </a>
+                    </li>
+                    <li class='mobile-navbar-item'>
+                        <a href='/Page/Product/Product.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Thực đơn</p>
+                        </a>
+                    </li>
+                    <li class ='mobile-navbar-item'>
+                        <a href='/Page/Connect/Connect.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Liên Hệ</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
         <div class='pageheading-container'>
-            <img class='pageheading-img' src='../../assets/images/AboutPageHeading.svg' alt="PageHeading" />
+            <div class="pageheading-img-container">
+                <img class='pageheading-img' src='../../assets/images/AboutPageHeading.svg' alt="PageHeading" />
+            </div>
             <div class='pageheading-content'>
                 <h2 class='pageheading-title'>GIỚI THIỆU</h2>
                 <p class='pageheading-desc'>Good Tea - Great Taste</p>
@@ -112,12 +176,12 @@
                 <div class='custom-container background-white'>
                     <div class='custom-img-container'>
                         <img
-                            class='fullWidth-img'
+                            class='mobile-custom-img fullWidth-img '
                             src='/assets/images/aboutContent2.svg'
                             alt="aboutContent2"
                         />
                     </div>
-                    <div class='content-container padding-left'>
+                    <div class='content-container padding-left padding-top padding-bottom'>
                         <h2 class='custom-title'>GONG CHA VIỆT NAM</h2>
                         <p class='custom-desc'>
                             Thương hiệu Gong Cha được công ty TNHH Golden Trust chính thức đưa
@@ -207,7 +271,7 @@
                                     src='/assets/images/timeLine1.svg'
                                     alt="timeLine1"
                                 />
-                                <img src="/assets/icons/timeLine.svg"/>
+                                <img class="timeLine-line" src="/assets/icons/timeLine.svg"/>
                             </div>
                         </div>
                         <div class='timeline-right'>
@@ -226,7 +290,7 @@
                                     src='/assets/images/timeLine2.svg'
                                     alt="timeLine1"
                                 />
-                                <img src="/assets/icons/timeLine.svg"/>
+                                <img class="timeLine-line" src="/assets/icons/timeLine.svg"/>
                             </div>
                         </div>
                         <div class='timeline-right'>
@@ -244,14 +308,14 @@
                                     src='/assets/images/timeLine3.svg'
                                     alt="timeLine1"
                                 />
-                                <img src="/assets/icons/timeLine.svg"/>
+                                <img class="timeLine-line" src="/assets/icons/timeLine.svg"/>
                             </div>
                         </div>
                         <div class='timeline-right'>
                             <p class='timeline-item-content'>
                                 Phát triển thêm 8 cửa hàng trên cả nước, mở rộng ra các tỉnh thành khác
-                                + 4 cửa hàng trực thuộc tổng công ty
-                                + 4 cửa hàng nhượng quyền
+                                <br><span>+ 4 cửa hàng trực thuộc tổng công ty</span>
+                                <br><span>+ 4 cửa hàng nhượng quyền</span>
                             </p>
                         </div>
                     </div>
@@ -264,13 +328,14 @@
                                     src='/assets/images/timeLine4.svg'
                                     alt="timeLine1"
                                 />
-                                <img src="/assets/icons/timeLine.svg"/>
+                                <img class="timeLine-line" src="/assets/icons/timeLine.svg"/>
                             </div>
                         </div>
                         <div class='timeline-right'>
                             <p class='timeline-item-content'>
                                 Phát triển thêm 15 cửa hàng trên cả nước
-                                + 7 cửa hàng trực thuộc tổng công ty+ 8 cửa hàng nhượng quyền
+                                <br><span>+ 7 cửa hàng trực thuộc tổng công ty</span>
+                                <br><span>+ 8 cửa hàng nhượng quyền</span>
                             </p>
                         </div>
                     </div>
@@ -283,13 +348,14 @@
                                     src='/assets/images/timeLine5.svg'
                                     alt="timeLine1"
                                 />
-                                <img src="/assets/icons/timeLine.svg"/>
+                                <img class="timeLine-line" src="/assets/icons/timeLine.svg"/>
                             </div>
                         </div>
                         <div class='timeline-right'>
                             <p class='timeline-item-content'>
                                 Phát triển thêm 3 cửa hàng trên cả nước, mở rộng ra các tỉnh thành khác
-                                + 2 cửa hàng trực thuộc tổng công ty+ 1 cửa hàng nhượng quyền
+                                <br><span>+ 2 cửa hàng trực thuộc tổng công ty</span>
+                                <br><span>+ 1 cửa hàng nhượng quyền</span>
                             </p>
                         </div>
                     </div>
@@ -302,13 +368,14 @@
                                     src='/assets/images/timeLine6.svg'
                                     alt="timeLine1"
                                 />
-                                <img src="/assets/icons/timeLine.svg"/>
+                                <img class="timeLine-line" src="/assets/icons/timeLine.svg"/>
                             </div>
                         </div>
                         <div class='timeline-right'>
                             <p class='timeline-item-content'>
                                 Phát triển thêm 9 cửa hàng trên cả nước, mở rộng ra các tỉnh thành khác
-                                + 7 cửa hàng trực thuộc tổng công ty+ 2 cửa hàng nhượng quyền
+                                <br><span>+ 7 cửa hàng trực thuộc tổng công ty</span>
+                                <br><span>+ 2 cửa hàng nhượng quyền</span>
                             </p>
                         </div>
                     </div>
@@ -321,17 +388,22 @@
                                     src='/assets/images/timeLine7.svg'
                                     alt="timeLine1"
                                 />
-                                <img src="/assets/icons/timeLine.svg"/>
+                                <img class="timeLine-line margin-right" src="/assets/icons/timeLine.svg"/>
                             </div>
                         </div>
                         <div class='timeline-right'>
                             <p class='timeline-item-content'>
                                 Phát triển thêm 3 cửa hàng trên cả nước, mở rộng ra các tỉnh thành khác
-                                + 1 cửa hàng trực thuộc tổng công ty+ 2 cửa hàng nhượng quyền
+                                <br><span>+ 1 cửa hàng trực thuộc tổng công ty</span>
+                                <br><span>+ 2 cửa hàng nhượng quyền</span>
                             </p>
                         </div>
                 </div>
             </div>
+        </div>
+
+        <div class="goUp-btn">
+            <img src="../../assets/icons/goUpIcon.svg" alt="">
         </div>
 
         <div class='footer'>

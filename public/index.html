@@ -6,10 +6,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <link rel="stylesheet" href="./assets/css/global.css">
     <link rel="stylesheet" href="./index.css">
-    <!-- <link rel="stylesheet" href="./Page/Product/Product.html"> -->
-    <title>gongcha</title>
+    <link rel="stylesheet" href="./reponsive.css">
+    <title>Trang Chủ</title>
 </head>
 <body>
     <div class='wrapper'>
@@ -71,41 +72,100 @@
             </div>
         </div>
 
+        <!-- mobile header -->
+        <div class="mobile-header">
+            <nav class="navbar">
+                <div class='mobile-header-logo'>
+                    <a href='/index.html' class ='mobile-header-logo-container'>
+                        <img class ='mobile-header-logo-content' src="./assets/images/logoOnlyDesc.svg" alt="GongCha" />
+                    </a>
+                </div>
+                <div class="menu-btn">
+                    <a href="#" class="menu-link ">
+                        <span class="line line-1"></span>
+                        <span class="line line-2"></span>
+                        <span class="line line-3"></span>
+                    </a>
+                </div>
+                <ul class="mobile-navbar-items">
+                    <li class='mobile-navbar-item'>
+                        <a href='/Page/Login/Login.html' class='mobile-login-container'>
+                            <p class ='mobile-navbar-content'>Đăng nhập</p>
+                        </a>
+                    </li>
+                    <!-- <li class='mobile-navbar-item'> 
+                        <div class ='mobile-action-container'>
+                            <a href='/Page/Profile/Profile.html' class="mobile-user-icon-container">
+                                <img src="./assets/icons//userIcon.svg" class="mobile-user-icon">
+                                <p class = 'mobile-user-name'>huy</p>
+                            </a>
+                        </div> 
+                    </li> 
+                    <li class='mobile-navbar-item'> 
+                        <div class ='mobile-action-container'>
+                            <a href='/Page/Cart/Cart.html' class="mobile-cart-container">
+                                <p class ='mobile-navbar-content'>Giỏ hàng</p>
+                            </a>
+                        </div> 
+                    </li>  -->
+                    <li class='mobile-navbar-item'>
+                        <a href='/index.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Trang chủ</p>
+                        </a>
+                    </li>
+                    <li class='mobile-navbar-item'>
+                        <a href='../../Page/About/About.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Giới thiệu</p>
+                        </a>
+                    </li>
+                    <li class='mobile-navbar-item'>
+                        <a href='/Page/Product/Product.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Thực đơn</p>
+                        </a>
+                    </li>
+                    <li class ='mobile-navbar-item'>
+                        <a href='/Page/Connect/Connect.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Liên Hệ</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
         <div class='home'>
             <div class='slideshow-container'>
                 <div class='mySlides fade'>
                     <img class='image' src='/assets/images/Slider1.svg' alt='slider' />
                 </div>
-                <div class='mySlides fade'>
+                <div class='mySlides fade '>
                     <img class='image' src='/assets/images/Slider2.svg' alt='slider' />
                 </div>
                 <div class='mySlides fade'>
                     <img class='image' src='/assets/images/Slider3.svg' alt='slider' />
                 </div>
-                <div class='dots'>
+                <div class='dots mobile-nonDisplay'>
                     <span class='dot' onclick='currentSlide(1)'></span>
                     <span class='dot' onclick='currentSlide(2)'></span>
                     <span class='dot' onclick='currentSlide(3)'></span>
                 </div>
-                <button class='prev' onclick='plusSlides(-1)'>
+                <button class='prev mobile-nonDisplay' onclick='plusSlides(-1)'>
                     <img src="/assets/icons/sliderLeftIcon.svg" class='arrow'/>
                 </button>
-                <button class='next' onclick='plusSlides(1)'>
+                <button class='next mobile-nonDisplay' onclick='plusSlides(1)'>
                     <img src="/assets/icons/sliderRightIcon.svg" class='arrow'/>
                 </button>
             </div>
 
             <div class='advertise'>
-                <img src="/assets/images/Ad1.svg"/>
-                <img src="/assets/images/Ad2.svg"/>
-                <img src="/assets/images/Ad3.svg"/>
-
+                <img class="mobile-adv" src="/assets/images/Ad1.svg"/>
+                <img class="mobile-nonDisplay" src="/assets/images/Ad2.svg"/>
+                <img class="mobile-nonDisplay" src="/assets/images/Ad3.svg"/>
             </div>
             <div class='advertise'>
-                <img src="/assets/images/Ad4.svg"/>
-                <img src="/assets/images/Ad5.svg"/>
-                <img src="/assets/images/Ad6.svg"/>
-                <img src="/assets/images/Ad7.svg"/>
+                <img class="mobile-nonDisplay" src="/assets/images/Ad4.svg"/>
+                <img class="mobile-nonDisplay" src="/assets/images/Ad5.svg"/>
+                <img class="mobile-nonDisplay" src="/assets/images/Ad6.svg"/>
+                <img class="mobile-nonDisplay" src="/assets/images/Ad7.svg"/>
             </div>
 
             <div class='more'>
@@ -117,7 +177,9 @@
                         </Link>
                     </div>
                 </div>
-                <img class='more-img' src='assets/images/More.svg' alt="more" />
+                <div class='more-img-container'>
+                    <img class='more-img' src='assets/images/More.svg' alt="more" />
+                </div>
             </div>
 
             <div class='custom'>
@@ -129,12 +191,12 @@
                         <img src='assets/images/Step1.svg' alt="step1" />
                         <div class='des-container'>
                             <p class='des'>Gọi</p>
-                            <p>1900.63.69</p>
+                            <span>1900.63.69</span>
                         </div>
                     </div>
                     <div class='custom-icon'>
                         <img src="/assets/icons/homePlayIcon.svg"/>
-                        <img src="/assets/icons/homePlayIcon.svg"/>
+                        <img class="mobile-nonDisplay" src="/assets/icons/homePlayIcon.svg"/>
                     </div>
                     <div class='custom-item'>
                         <img src='assets/images/Step2.svg' alt="step2" />
@@ -142,7 +204,7 @@
                     </div>
                     <div class='custom-icon'>
                         <img src="/assets/icons/homePlayIcon.svg"/>
-                        <img src="/assets/icons/homePlayIcon.svg"/>
+                        <img class="mobile-nonDisplay" src="/assets/icons/homePlayIcon.svg"/>
                     </div>
                     <div class='custom-item'>
                         <img src='assets/images/Step3.svg' alt="step3" />
@@ -150,7 +212,7 @@
                     </div>
                     <div class='custom-icon'>
                         <img src="/assets/icons/homePlayIcon.svg"/>
-                        <img src="/assets/icons/homePlayIcon.svg"/>
+                        <img class="mobile-nonDisplay" src="/assets/icons/homePlayIcon.svg"/>
                     </div>
                     <div class='custom-item'>
                         <img src='assets/images/Step4.svg' alt="step4" />
@@ -158,6 +220,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="goUp-btn">
                 <img src="./assets/icons/goUpIcon.svg" alt="">
             </div>

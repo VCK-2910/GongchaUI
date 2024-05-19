@@ -13,7 +13,9 @@ function checkLocalStorage() {
 
         var userNamePara = document.createElement('p');
         userNamePara.setAttribute('class', 'navbar-container');
-        userNamePara.textContent = prevUserAccount.name;
+        // Lấy phần tên đầu tiên của người dùng
+        var firstName = prevUserAccount.name.split(' ')[0];
+        userNamePara.textContent = firstName;
 
         actionContainer.appendChild(userIcon);
         actionContainer.appendChild(userNamePara);
@@ -200,6 +202,53 @@ if (userProducts) {
                 const totalPrice = userProduct.price * (currentValue - 1);
                 const formattedTotal = totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
                 itemTotal.innerHTML = formattedTotal + priceSpan.outerHTML;
+
+                //producs total price
+                const vouchers = JSON.parse(localStorage.getItem('localVoucher'));
+                const voucherInput = document.querySelector('.voucher-input');
+                const voucherApply = document.querySelector('.voucher-apply');
+                const voucherPrice = document.querySelector('.pay-voucher');
+                const productsPrice = document.querySelectorAll('.item-total');
+                const pricesArray = Array.from(productsPrice).map((value) => {
+                    const numberPrice = parseInt(value.innerText.replace(/[đ.]/g, ''));
+                    return numberPrice;
+                });
+                const productsTotalPrice = document.querySelector('.pay-products');
+
+                const shipPrice = document.querySelector('.pay-ship');
+                const numShipPrice = parseFloat(shipPrice.textContent.replace(/\D/g, ''));
+
+                const payTotal = document.querySelector('.pay-total');
+
+                voucherApply.addEventListener('click', () => {
+                    const voucherValue = voucherInput.value.trim();
+
+                    const matchedVoucher = vouchers.find((voucher) => voucher.name.trim() === voucherValue);
+
+                    if (matchedVoucher) {
+                        alert('áp mã thành công!');
+                        payTotal.textContent = (productsTotal + numShipPrice - matchedVoucher.sellPrice)
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                        voucherPrice.textContent =
+                            '-' + matchedVoucher.sellPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                        voucherInput.value = '';
+                        return;
+                    } else {
+                        alert('mã giảm giá không hợp lệ!');
+                    }
+                });
+
+                let productsTotal = 0;
+
+                for (let i = 0; i < pricesArray.length; i++) {
+                    productsTotal += pricesArray[i];
+                }
+
+                productsTotalPrice.textContent = productsTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                const numProductsTotalPrice = parseFloat(productsTotalPrice.textContent.replace(/\D/g, ''));
+
+                payTotal.textContent = (productsTotal + numShipPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
             }
         });
 
@@ -221,6 +270,53 @@ if (userProducts) {
                 const totalPrice = userProduct.price * (currentValue + 1);
                 const formattedTotal = totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
                 itemTotal.innerHTML = formattedTotal + priceSpan.outerHTML;
+
+                //producs total price
+                const vouchers = JSON.parse(localStorage.getItem('localVoucher'));
+                const voucherInput = document.querySelector('.voucher-input');
+                const voucherApply = document.querySelector('.voucher-apply');
+                const voucherPrice = document.querySelector('.pay-voucher');
+                const productsPrice = document.querySelectorAll('.item-total');
+                const pricesArray = Array.from(productsPrice).map((value) => {
+                    const numberPrice = parseInt(value.innerText.replace(/[đ.]/g, ''));
+                    return numberPrice;
+                });
+                const productsTotalPrice = document.querySelector('.pay-products');
+
+                const shipPrice = document.querySelector('.pay-ship');
+                const numShipPrice = parseFloat(shipPrice.textContent.replace(/\D/g, ''));
+
+                const payTotal = document.querySelector('.pay-total');
+
+                voucherApply.addEventListener('click', () => {
+                    const voucherValue = voucherInput.value.trim();
+
+                    const matchedVoucher = vouchers.find((voucher) => voucher.name.trim() === voucherValue);
+
+                    if (matchedVoucher) {
+                        alert('áp mã thành công!');
+                        payTotal.textContent = (productsTotal + numShipPrice - matchedVoucher.sellPrice)
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                        voucherPrice.textContent =
+                            '-' + matchedVoucher.sellPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                        voucherInput.value = '';
+                        return;
+                    } else {
+                        alert('mã giảm giá không hợp lệ!');
+                    }
+                });
+
+                let productsTotal = 0;
+
+                for (let i = 0; i < pricesArray.length; i++) {
+                    productsTotal += pricesArray[i];
+                }
+
+                productsTotalPrice.textContent = productsTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                const numProductsTotalPrice = parseFloat(productsTotalPrice.textContent.replace(/\D/g, ''));
+
+                payTotal.textContent = (productsTotal + numShipPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
             }
         });
 
@@ -300,24 +396,73 @@ if (userProducts) {
         return cartItems.appendChild(cartItem);
     });
 }
-if (userProducts.length === 0) {
-    const cartItems = document.querySelector('.cart-items');
 
-    const noItem = document.createElement('li');
-    noItem.classList.add('no-cart-item');
-    noItem.textContent = 'mua đồ đi';
+// if (userProducts.length === 0) {
+//     const cartItems = document.querySelector('.cart-items');
 
-    cartItems.appendChild(noItem);
-}
+//     const noItem = document.createElement('li');
+//     noItem.classList.add('no-cart-item');
+//     noItem.textContent = 'mua đồ đi';
 
-//bill
+//     cartItems.appendChild(noItem);
+// }
 
+//handle bill
+const vouchers = JSON.parse(localStorage.getItem('localVoucher'));
+const voucherInput = document.querySelector('.voucher-input');
+const voucherApply = document.querySelector('.voucher-apply');
+const voucherPrice = document.querySelector('.pay-voucher');
 const productsPrice = document.querySelectorAll('.item-total');
 const pricesArray = Array.from(productsPrice).map((value) => {
     const numberPrice = parseInt(value.innerText.replace(/[đ.]/g, ''));
     return numberPrice;
 });
-// const shipPrice = document.querySelector('.');
+const productsTotalPrice = document.querySelector('.pay-products');
+
+const shipPrice = document.querySelector('.pay-ship');
+const numShipPrice = parseFloat(shipPrice.textContent.replace(/\D/g, ''));
+
+const payTotal = document.querySelector('.pay-total');
+
+const paySubmit = document.querySelector('.pay-submit');
+
+let matchedVoucher = 0;
+
+voucherApply.addEventListener('click', () => {
+    const voucherValue = voucherInput.value.trim();
+
+    const matchedVoucher = vouchers.find((voucher) => voucher.name.trim() === voucherValue);
+
+    if (matchedVoucher) {
+        alert('áp mã thành công!');
+        payTotal.textContent = (productsTotal + numShipPrice - matchedVoucher.sellPrice)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        voucherPrice.textContent = '-' + matchedVoucher.sellPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        voucherInput.value = '';
+    } else {
+        alert('mã giảm giá không hợp lệ!');
+    }
+});
+
+voucherInput.addEventListener('keydown', (e) => {
+    const voucherValue = voucherInput.value.trim();
+
+    const matchedVoucher = vouchers.find((voucher) => voucher.name.trim() === voucherValue);
+
+    if (e.key === 'Enter') {
+        if (matchedVoucher) {
+            alert('áp mã thành công!');
+            payTotal.textContent = (productsTotal + numShipPrice - matchedVoucher.sellPrice)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            voucherPrice.textContent = '-' + matchedVoucher.sellPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            voucherInput.value = '';
+        } else {
+            alert('mã giảm giá không hợp lệ!');
+        }
+    }
+});
 
 let productsTotal = 0;
 
@@ -325,5 +470,113 @@ for (let i = 0; i < pricesArray.length; i++) {
     productsTotal += pricesArray[i];
 }
 
-const voucher = JSON.parse(localStorage.getItem('localVoucher'));
-console.log(voucher);
+productsTotalPrice.textContent = productsTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+const numProductsTotalPrice = parseFloat(productsTotalPrice.textContent.replace(/\D/g, ''));
+
+payTotal.textContent = (productsTotal + numShipPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+paySubmit.addEventListener('click', () => {
+    alert('bạn đã thanh toán thành công!');
+});
+
+//handle go up.
+const goUpBtn = document.querySelector('.goUp-btn');
+
+function scrollFunction() {
+    if (window.scrollY > 400) {
+        goUpBtn.style.display = 'block';
+    } else {
+        goUpBtn.style.display = 'none';
+    }
+}
+
+scrollFunction();
+
+window.addEventListener('scroll', scrollFunction);
+
+goUpBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+});
+
+//handle mobile header
+const menuBtn = document.querySelector('.menu-btn');
+const mobileNavbarItems = document.querySelector('.mobile-navbar-items');
+const mobileLoginContainer = document.querySelector('.mobile-login-container');
+
+menuBtn.addEventListener('click', () => {
+    if (mobileNavbarItems.style.display === 'none' || mobileNavbarItems.style.display === '') {
+        mobileNavbarItems.style.display = 'block';
+    } else {
+        mobileNavbarItems.style.display = 'none';
+    }
+});
+
+//handle mobile logined
+function mobileLogined() {
+    var prevUserAccount = JSON.parse(localStorage.getItem('prevUserAccount'));
+    if (prevUserAccount) {
+        mobileLoginContainer.closest('li').style.display = 'none';
+        // Function to create the first li element
+        function createFirstLiElement() {
+            const profileNav = document.createElement('li');
+            profileNav.classList.add('mobile-navbar-item');
+
+            const profileContainer = document.createElement('div');
+            profileContainer.classList.add('mobile-action-container');
+
+            const profilePageLink = document.createElement('a');
+            profilePageLink.href = '/Page/Profile/Profile.html';
+            profilePageLink.classList.add('mobile-user-icon-container');
+
+            const profileIcon = document.createElement('img');
+            profileIcon.src = '../../assets/icons/userIcon.svg';
+            profileIcon.classList.add('mobile-user-icon');
+
+            const profiledesc = document.createElement('p');
+            profiledesc.classList.add('mobile-user-name');
+            profiledesc.textContent = 'huy';
+
+            profilePageLink.appendChild(profileIcon);
+            profilePageLink.appendChild(profiledesc);
+            profileContainer.appendChild(profilePageLink);
+            profileNav.appendChild(profileContainer);
+
+            return profileNav;
+        }
+
+        // Function to create the second li element
+        function createSecondLiElement() {
+            const cartNav = document.createElement('li');
+            cartNav.classList.add('mobile-navbar-item');
+
+            const cartContainer = document.createElement('div');
+            cartContainer.classList.add('mobile-action-container');
+
+            const cartPageLink = document.createElement('a');
+            cartPageLink.href = '/Page/Cart/Cart.html';
+            cartPageLink.classList.add('mobile-cart-container');
+
+            const cartDesc = document.createElement('p');
+            cartDesc.classList.add('mobile-navbar-content');
+            cartDesc.textContent = 'Giỏ hàng';
+
+            cartPageLink.appendChild(cartDesc);
+            cartContainer.appendChild(cartPageLink);
+            cartNav.appendChild(cartContainer);
+
+            return cartNav;
+        }
+
+        // Create the li elements
+        const profileNav = createFirstLiElement();
+        const cartNav = createSecondLiElement();
+
+        // Insert the li elements at the top of the mobile-navbar-items element
+        mobileNavbarItems.insertBefore(cartNav, mobileNavbarItems.firstChild);
+        mobileNavbarItems.insertBefore(profileNav, mobileNavbarItems.firstChild);
+    }
+}
+mobileLogined();

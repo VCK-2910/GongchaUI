@@ -15,8 +15,7 @@
     outline: 1px solid #ccc;
 }
 
-.login {
-}
+.login {}
 
 .login-title {
     display: flex;
@@ -31,13 +30,11 @@
     margin: 12px 0px;
 }
 
-.login-action {
-}
+.login-action {}
 
-.login-input {
-}
+.login-input {}
 
-.login-input-name,
+.login-input-email,
 .login-input-password {
     position: relative;
     display: flex;
@@ -180,7 +177,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 40px 0px;
+    margin: 28px 0px;
 }
 
 .submit {
@@ -206,6 +203,21 @@
     outline: 0.5px solid rgba(0, 0, 0, 1);
     background: var(--color-red-normal);
     transition: 0.2s ease-out;
+}
+
+.submit-icon {
+    fill: var(--black);
+    fill-opacity: 0.25;
+}
+
+.submit:hover .submit-icon {
+    fill: #fff;
+    fill-opacity: 1;
+}
+
+.submitted .submit-icon {
+    fill: #fff;
+    fill-opacity: 1;
 }
 
 .login-error {
@@ -244,8 +256,6 @@
         outline: 0.5px solid rgba(0, 0, 0, 1);
     }
 }
-
-
 
 /* google css */
 .login-social {

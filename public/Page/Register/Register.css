@@ -11,32 +11,30 @@
     width: 32%;
     height: 100%;
     background-color: var(--white);
-    padding: 32px 48px;
+    padding: 28px 48px;
     outline: 1px solid #ccc;
 }
 
-.login {
-}
+.login {}
 
 .login-title {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .title {
     font-size: 30px;
     font-weight: 800;
-    margin: 12px 0px;
+    margin: 6px 0px;
 }
 
-.login-action {
-}
+.login-action {}
 
-.login-input {
-}
+.login-input {}
 
+.login-input-email,
 .login-input-name,
 .login-input-password,
 .login-input-re-password {
@@ -44,7 +42,7 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 
     input {
         width: 100%;
@@ -181,7 +179,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 40px 0px;
+    margin: 24px 0px;
 }
 
 .submit {
@@ -202,11 +200,21 @@
     }
 }
 
-.abc {
+.submit:hover .submit-icon {
+    fill: #fff;
+    fill-opacity: 1;
+}
+
+.isSubmit {
     cursor: pointer;
     outline: 0.5px solid rgba(0, 0, 0, 1);
     background: var(--color-red-normal);
     transition: 0.2s ease-out;
+}
+
+.isSubmit .submit-icon {
+    fill: #fff;
+    fill-opacity: 1;
 }
 
 .submitted {
@@ -214,6 +222,11 @@
     outline: 0.5px solid rgba(0, 0, 0, 1);
     background: var(--color-red-normal);
     transition: 0.2s ease-out;
+}
+
+.submit-icon {
+    fill: var(--black);
+    fill-opacity: 0.25;
 }
 
 .login-error {
@@ -240,7 +253,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 8px 0px;
+    padding: 6px 0px;
     border-radius: 8px;
     border: 0.5px solid rgba(0, 0, 0, 0.5);
     box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -253,15 +266,13 @@
     }
 }
 
-
-
 /* google css */
 .login-social {
     width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 8px 0px;
+    padding: 6px 0px;
     border-radius: 8px;
     border: 0.5px solid rgba(0, 0, 0, 0.5);
     box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.25);

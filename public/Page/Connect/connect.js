@@ -1,63 +1,78 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('.contact-form');
-    const inputs = document.querySelectorAll('.contact-form input, .contact-form textarea');
-    const labelLines = document.querySelectorAll('.label-line');
-
-    function handleInputChange(event) {
-        const input = event.target;
-        const labelLine = input.nextElementSibling;
-
-        if (input.value.trim() !== '') {
-            input.classList.add('input-valued');
-            labelLine.classList.add('line-valued');
+//handle input valued
+document.querySelectorAll('input, textarea').forEach((input) => {
+    input.addEventListener('input', function () {
+        const labelLine = this.closest('div').querySelector('.label-line');
+        if (this.value.trim() !== '') {
+            this.classList.add('input-valued');
+            if (labelLine) {
+                labelLine.classList.add('line-valued');
+            }
         } else {
-            input.classList.remove('input-valued');
-            labelLine.classList.remove('line-valued');
-        }
-    }
-
-    inputs.forEach((input) => {
-        input.addEventListener('change', handleInputChange);
-        const feedbackData = JSON.parse(localStorage.getItem('feedbacks')) || {};
-        input.value = feedbackData[input.name] || '';
-        if (input.value.trim() !== '') {
-            input.classList.add('input-valued');
-            input.nextElementSibling.classList.add('line-valued');
+            this.classList.remove('input-valued');
+            if (labelLine) {
+                labelLine.classList.remove('line-valued');
+            }
         }
     });
-
-    function handleFormSubmit(event) {
-        event.preventDefault();
-
-        // Thêm dữ liệu vào localStorage chỉ khi người dùng nhấn nút gửi phản hồi
-        updateLocalStorage();
-
-        alert('Phản hồi đã được gửi thành công!');
-        form.reset(); // Reset the form after successful submission
-    }
-
-    form.addEventListener('submit', handleFormSubmit);
-
-    function updateLocalStorage() {
-        const feedbackData = {
-            id: Date.now(), // Generate unique ID for each feedback
-            name: document.querySelector('.nameInput').value,
-            email: document.querySelector('.emailInput').value,
-            phoneNumber: document.querySelector('.phonenumberInput').value,
-            feedback: document.querySelector('.feedbackInput').value,
-        };
-
-        // Get existing feedbacks from localStorage
-        let feedbacks = JSON.parse(localStorage.getItem('feedbacks')) || [];
-
-        // Add new feedback to the array
-        feedbacks.push(feedbackData);
-
-        // Save the updated array back to localStorage
-        localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
-    }
 });
 
+//handle send feedback
+function submitFeedback(e) {
+    e.preventDefault();
+    const feedbacks = JSON.parse(localStorage.getItem('feedback')) || [];
+    const nameInput = document.querySelector('.nameInput');
+    const emailInput = document.querySelector('.emailInput');
+    const phoneInput = document.querySelector('.phonenumberInput');
+    const feedbackInput = document.querySelector('.feedbackInput');
+    const checkboxInput = document.querySelector('.checkboxInput');
+
+    if (
+        !nameInput.value.trim() ||
+        !emailInput.value.trim() ||
+        !phoneInput.value.trim() ||
+        !feedbackInput.value.trim() ||
+        !checkboxInput.checked
+    ) {
+        alert('Vui lòng nhập đầy đủ thông tin và đồng ý với điều khoản.');
+    } else {
+        console.log(checkboxInput.checked);
+        console.log(1);
+        const feedback = {
+            id: feedbacks.length + 1,
+            name: nameInput.value.trim(),
+            email: emailInput.value.trim(),
+            sodienthoai: phoneInput.value.trim(),
+            noidungphanhoi: feedbackInput.value.trim(),
+            thoigian: new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' }),
+        };
+
+        feedbacks.push(feedback);
+
+        // Reset input fields
+        nameInput.value = '';
+        emailInput.value = '';
+        phoneInput.value = '';
+        feedbackInput.value = '';
+        checkboxInput.checked = false;
+
+        // Remove 'input-valued' class
+        nameInput.classList.remove('input-valued');
+        emailInput.classList.remove('input-valued');
+        phoneInput.classList.remove('input-valued');
+        feedbackInput.classList.remove('input-valued');
+
+        const labelLines = document.querySelectorAll('.label-line');
+        labelLines.forEach((labelLine) => labelLine.classList.remove('line-valued'));
+
+        localStorage.setItem('feedback', JSON.stringify(feedbacks));
+        alert('Phản hồi của bạn đã được gửi thành công!');
+    }
+}
+
+const submitBtn = document.querySelector('.submit');
+submitBtn.addEventListener('click', submitFeedback);
+
+//handle logined
 function checkLocalStorage() {
     var loginContainer = document.querySelector('.action-container');
     var prevUserAccount = JSON.parse(localStorage.getItem('prevUserAccount'));
@@ -73,7 +88,9 @@ function checkLocalStorage() {
 
         var userNamePara = document.createElement('p');
         userNamePara.setAttribute('class', 'navbar-container');
-        userNamePara.textContent = prevUserAccount.name;
+        // Lấy phần tên đầu tiên của người dùng
+        var firstName = prevUserAccount.name.split(' ')[0];
+        userNamePara.textContent = firstName;
 
         actionContainer.appendChild(userIcon);
         actionContainer.appendChild(userNamePara);
@@ -94,6 +111,7 @@ function checkLocalStorage() {
 
 checkLocalStorage();
 
+//handle search
 const searchBtn = document.querySelector('.search-btn');
 const searchInput = document.querySelector('.search input');
 const searchContainer = document.querySelector('.search');
@@ -174,3 +192,105 @@ document.addEventListener('click', function (e) {
         searchResultContainer.style.display = 'none';
     }
 });
+
+//handle go up.
+const goUpBtn = document.querySelector('.goUp-btn');
+
+function scrollFunction() {
+    if (window.scrollY > 400) {
+        goUpBtn.style.display = 'block';
+    } else {
+        goUpBtn.style.display = 'none';
+    }
+}
+
+scrollFunction();
+
+window.addEventListener('scroll', scrollFunction);
+
+goUpBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+});
+
+//handle mobile header
+const menuBtn = document.querySelector('.menu-btn');
+const mobileNavbarItems = document.querySelector('.mobile-navbar-items');
+const mobileLoginContainer = document.querySelector('.mobile-login-container');
+
+menuBtn.addEventListener('click', () => {
+    if (mobileNavbarItems.style.display === 'none' || mobileNavbarItems.style.display === '') {
+        mobileNavbarItems.style.display = 'block';
+    } else {
+        mobileNavbarItems.style.display = 'none';
+    }
+});
+
+//handle mobile logined
+function mobileLogined() {
+    var prevUserAccount = JSON.parse(localStorage.getItem('prevUserAccount'));
+    if (prevUserAccount) {
+        mobileLoginContainer.closest('li').style.display = 'none';
+        // Function to create the first li element
+        function createFirstLiElement() {
+            const profileNav = document.createElement('li');
+            profileNav.classList.add('mobile-navbar-item');
+
+            const profileContainer = document.createElement('div');
+            profileContainer.classList.add('mobile-action-container');
+
+            const profilePageLink = document.createElement('a');
+            profilePageLink.href = '/Page/Profile/Profile.html';
+            profilePageLink.classList.add('mobile-user-icon-container');
+
+            const profileIcon = document.createElement('img');
+            profileIcon.src = '../../assets/icons/userIcon.svg';
+            profileIcon.classList.add('mobile-user-icon');
+
+            const profiledesc = document.createElement('p');
+            profiledesc.classList.add('mobile-user-name');
+            profiledesc.textContent = 'huy';
+
+            profilePageLink.appendChild(profileIcon);
+            profilePageLink.appendChild(profiledesc);
+            profileContainer.appendChild(profilePageLink);
+            profileNav.appendChild(profileContainer);
+
+            return profileNav;
+        }
+
+        // Function to create the second li element
+        function createSecondLiElement() {
+            const cartNav = document.createElement('li');
+            cartNav.classList.add('mobile-navbar-item');
+
+            const cartContainer = document.createElement('div');
+            cartContainer.classList.add('mobile-action-container');
+
+            const cartPageLink = document.createElement('a');
+            cartPageLink.href = '/Page/Cart/Cart.html';
+            cartPageLink.classList.add('mobile-cart-container');
+
+            const cartDesc = document.createElement('p');
+            cartDesc.classList.add('mobile-navbar-content');
+            cartDesc.textContent = 'Giỏ hàng';
+
+            cartPageLink.appendChild(cartDesc);
+            cartContainer.appendChild(cartPageLink);
+            cartNav.appendChild(cartContainer);
+
+            return cartNav;
+        }
+
+        // Create the li elements
+        const profileNav = createFirstLiElement();
+        const cartNav = createSecondLiElement();
+
+        // Insert the li elements at the top of the mobile-navbar-items element
+        mobileNavbarItems.insertBefore(cartNav, mobileNavbarItems.firstChild);
+        mobileNavbarItems.insertBefore(profileNav, mobileNavbarItems.firstChild);
+    }
+}
+mobileLogined();

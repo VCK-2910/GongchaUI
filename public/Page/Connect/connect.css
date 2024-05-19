@@ -1,7 +1,4 @@
-.wrapper {
-   
-    
-}
+.wrapper {}
 
 /* header */
 .header {
@@ -19,6 +16,9 @@
     z-index: 10;
 }
 
+.mobile-header {
+    display: none;
+}
 
 .header-logo {
     /* width: 20%; */
@@ -36,7 +36,6 @@
     width: 192px;
     height: 48px;
 }
-
 
 .navbar {
     /* width: 60%; */
@@ -191,8 +190,6 @@
     padding: 12px 20px;
     border-radius: 40px;
     background: var(--color-red-normal);
-
-   
 }
 
 .user-action-container:hover,
@@ -224,7 +221,6 @@
     cursor: pointer;
     background: #ed1a38;
 }
-
 
 /* page heading */
 .pageheading-container {
@@ -287,9 +283,6 @@
 }
 .breadcrumb-title {
     font-size: 14px;
-}
-
-.content {
 }
 
 /* connect */
@@ -573,8 +566,7 @@
     }
 }
 
-.form-group {
-}
+.form-group {}
 
 .checkbox-container {
     font-size: 14px;
@@ -621,6 +613,7 @@
 
 .checkbox-content {
     padding-left: 26px;
+    line-height: 1.2
 }
 
 .submit-container {
@@ -644,7 +637,27 @@
     background-color: #ed1a38;
 }
 
-/* custom css. */
+.goUp-btn {
+    position: fixed;
+    width: fit-content;
+    display: none;
+    bottom: 2.5%;
+    right: 8px;
+    font-size: var(--font-size);
+    font-weight: var(--font-bold);
+    color: var(--white);
+    padding: 16px 12px 12px 12px;
+    border-radius: 40px;
+    background: var(--color-red-normal);
+    z-index: 12;
+}
+
+.goUp-btn:hover {
+    cursor: pointer;
+    background: #ed1a38;
+}
+
+/* custom css */
 .font-size-small {
     font-size: 14px;
 }
@@ -672,7 +685,6 @@
 .margin-bottom {
     margin-bottom: 8px;
 }
-
 
 /* footer */
 .footer {
@@ -733,8 +745,7 @@
     font-size: var(--font-size);
 }
 
-.contact-title {
-}
+.contact-title {}
 
 .contact-content {
     font-size: var(--font-size-small);

@@ -6,9 +6,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon.ico">
     <link rel="stylesheet" href="connect.css">
+    <link rel="stylesheet" href="ConnectReponsive.css">
     <link rel="stylesheet" href="../../assets/css/global.css">
-    <title>Document</title>
+    <title>Liên Hệ</title>
 </head>
 <body>
     <div class='wrapper'>
@@ -60,8 +62,70 @@
             </div>
         </div>
 
+        <!-- mobile header -->
+        <div class="mobile-header">
+            <nav class="navbar">
+                <div class='mobile-header-logo'>
+                    <a href='/index.html' class ='mobile-header-logo-container'>
+                        <img class ='mobile-header-logo-content' src="../../assets/images/logoOnlyDesc.svg" alt="GongCha" />
+                    </a>
+                </div>
+                <div class="menu-btn">
+                    <a href="#" class="menu-link ">
+                        <span class="line line-1"></span>
+                        <span class="line line-2"></span>
+                        <span class="line line-3"></span>
+                    </a>
+                </div>
+                <ul class="mobile-navbar-items">
+                    <li class='mobile-navbar-item'>
+                        <a href='/Page/Login/Login.html' class='mobile-login-container'>
+                            <p class ='mobile-navbar-content'>Đăng nhập</p>
+                        </a>
+                    </li>
+                    <!-- <li class='mobile-navbar-item'> 
+                        <div class ='mobile-action-container'>
+                            <a href='/Page/Profile/Profile.html' class="mobile-user-icon-container">
+                                <img src="./assets/icons//userIcon.svg" class="mobile-user-icon">
+                                <p class = 'mobile-user-name'>huy</p>
+                            </a>
+                        </div> 
+                    </li> 
+                    <li class='mobile-navbar-item'> 
+                        <div class ='mobile-action-container'>
+                            <a href='/Page/Cart/Cart.html' class="mobile-cart-container">
+                                <p class ='mobile-navbar-content'>Giỏ hàng</p>
+                            </a>
+                        </div> 
+                    </li>  -->
+                    <li class='mobile-navbar-item'>
+                        <a href='/index.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Trang chủ</p>
+                        </a>
+                    </li>
+                    <li class='mobile-navbar-item'>
+                        <a href='../../Page/About/About.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Giới thiệu</p>
+                        </a>
+                    </li>
+                    <li class='mobile-navbar-item'>
+                        <a href='/Page/Product/Product.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Thực đơn</p>
+                        </a>
+                    </li>
+                    <li class ='mobile-navbar-item'>
+                        <a href='/Page/Connect/Connect.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Liên Hệ</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
         <div class='pageheading-container'>
-            <img class='pageheading-img' src='../../assets/images/ConnectPageHeading.svg' alt="PageHeading" />
+            <div class="pageheading-img-container">
+                <img class='pageheading-img' src='../../assets/images/ConnectPageHeading.svg' alt="PageHeading" />
+            </div>
             <div class='pageheading-content'>
                 <h2 class='pageheading-title'>LIÊN HỆ</h2>
                 <p class='pageheading-desc'>Please fill the form to submit your feedback to Gong Cha</p>
@@ -92,49 +156,22 @@
             <form class='contact-form'>
                 <div class='form-info'>
                     <div class='name-info'>
-                        <input
-                            class='nameInput'
-                            type="text"
-                            required
-                        />
-                        <div
-                            class='label-line'
-                        >
-                            Họ và tên
-                        </div>
+                        <input class='nameInput' type="text">
+                        <div class='label-line'>Họ và tên</div>
                     </div>
                     <div class='secret-info'>
                         <div class='Email-info'>
-                            <input
-                                class='emailInput'
-                                type="text"
-                                required
-                            />
-                            <div class='label-line'
-                            >
-                                Email
-                            </div>
+                            <input class='emailInput' type="text">
+                            <div class='label-line'>Email</div>
                         </div>
                         <div class='phonenumber-info'>
-                            <input
-                                class='phonenumberInput'
-                                type="text"
-                                required
-                            />
-                            <div class='label-line'
-                            >
-                                Số điện thoại
-                            </div>
+                            <input class='phonenumberInput' type="text">
+                            <div class='label-line'>Số điện thoại</div>
                         </div>
                     </div>
                     <div class='feedback-info'>
-                        <textarea
-                            class='feedbackInput'>
-                        </textarea>
-                        <div class='label-line'
-                        >
-                            Nội dung phản hồi
-                        </div>
+                        <textarea class='feedbackInput'></textarea>
+                        <div class='label-line'>Nội dung phản hồi</div>
                     </div>
                 </div>
                 <div className="form-group">
@@ -142,38 +179,38 @@
                         THỎA THUẬN BẢO MẬT THÔNG TIN
                     </h3>
                     <ul class='padding-left'>
-                        <p class='font-size-small font-weight margin-bottom'>
+                        <p class='font-size-small font-weight margin-bottom justify-content'>
                             1. Gong Cha sẽ luôn giữ bí mật các thông tin của khách hàng và tuân thủ
                             những quy định pháp luật về bảo mật thông tin có liên quan.
                         </p>
-                        <p class='font-size-small font-weight margin-bottom'>
+                        <p class='font-size-small font-weight margin-bottom justify-content'>
                             2. Gong Cha có thể tiết lộ thông tin cá nhân cho mục đích giải quyết
                             khiếu nại, than phiền của khách hàng cho:
                         </p>
-                        <p class='font-size-small font-weight margin-bottom'>
+                        <p class='font-size-small font-weight margin-bottom justify-content'>
                             - Các bộ phận trực thuộc Gong Cha Việt Nam;
                         </p>
-                        <p class='font-size-small font-weight margin-bottom'>
+                        <p class='font-size-small font-weight margin-bottom justify-content'>
                             - Bên thứ ba được ủy quyền chính thức từ Gong Cha Việt Nam cho việc giải
                             quyết các than phiền, khiếu nại mang tính chất nghiêm trọng.
                         </p>
                     </ul>
                     <h3 class='font-size margin-bottom'>* LƯU Ý:</h3>
-                    <p class='font-size-small font-weight margin-bottom'>
+                    <p class='font-size-small font-weight margin-bottom justify-content'>
                         Quý khách vui lòng cung cấp chính xác các thông tin cá nhân để Gong Cha có
                         thể liên hệ giải quyết các thắc mắc, phản hồi và phàn nàn của khách hàng một
                         cách nhanh chóng nhất.
                     </p>
-                    <p class='font-size-small font-weight margin-bottom'>
+                    <p class='font-size-small font-weight margin-bottom justify-content'>
                         Các ngày Thứ bảy, Chủ nhật, ngày lễ sẽ khiến quá trình giải quyết phản hồi
                         của quý khách chậm hơn thường lệ
                     </p>
                 </div>
                 <label class='checkbox-container'>
                     <div class='checkbox'>
-                        <input onChange={handleCheckboxChange} type="checkbox" required />
+                        <input class="checkboxInput" type="checkbox"/>
                     </div>
-                    <p class='checkbox-content'>
+                    <p class='checkbox-content justify-content'>
                         Tôi xác nhận các thông tin cá nhân cung cấp ở trên là hoàn toàn chính xác và
                         đồng ý để Gong Cha sử dụng các thông tin đó cho mục đích giải quyết phản
                         hồi.
@@ -185,6 +222,10 @@
                     </button>
                 </div>
             </form>
+        </div>
+
+        <div class="goUp-btn">
+            <img src="../../assets/icons/goUpIcon.svg" alt="">
         </div>
 
         <div class='footer'>

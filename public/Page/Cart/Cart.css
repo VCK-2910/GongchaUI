@@ -19,6 +19,10 @@
     z-index: 10;
 }
 
+.mobile-header {
+    display: none;
+}
+
 
 .header-logo {
     /* width: 20%; */
@@ -326,6 +330,7 @@
     justify-content: center;
     font-size: 16px;
     font-weight: 500;
+    text-align: center;
     color: rgba(0, 0, 0, 0.50);
 }
 
@@ -335,6 +340,7 @@
     justify-content: center;
     font-size: 16px;
     font-weight: 500;
+    text-align: center;
     color: rgba(0, 0, 0, 0.50);
 }
 
@@ -344,6 +350,7 @@
     justify-content: center;
     font-size: 16px;
     font-weight: 500;
+    text-align: center;
     color: rgba(0, 0, 0, 0.50);
 }
 
@@ -353,6 +360,8 @@
     justify-content: center;
     font-size: 16px;
     font-weight: 500;
+    text-align: center;
+    text-align: end;
     color: rgba(0, 0, 0, 0.50);
 }
 
@@ -658,14 +667,21 @@
     padding: 12px;
 }
 
+.products-price-container,
+.ship-container,
+.voucher-price-container,
 .total-container {
     display: flex;
 }
 
+.products-price-container span,
+.ship-container span,
+.voucher-price-container span,
 .total-container span {
     font-size: 16px;
     color: var(--color-red-normal);
     font-weight: 600;
+    margin-left: 3px;
 }
 
 .pay-methods {
@@ -693,6 +709,26 @@
     background-color: #ed1a38;
     outline: 1px solid rgba(0, 0, 0, 0.25);
     transition: 0.2s ease;
+}
+
+.goUp-btn {
+    position: fixed;
+    width: fit-content;
+    display: none;
+    bottom: 2.5%;
+    right: 8px;
+    font-size: var(--font-size);
+    font-weight: var(--font-bold);
+    color: var(--white);
+    padding: 16px 12px 12px 12px;
+    border-radius: 40px;
+    background: var(--color-red-normal);
+    z-index: 12;
+}
+
+.goUp-btn:hover {
+    cursor: pointer;
+    background: #ed1a38;
 }
 
 /* custom css */

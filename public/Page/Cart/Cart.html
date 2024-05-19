@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon.ico">
     <link rel="stylesheet" href="./Cart.css">
+    <link rel="stylesheet" href="./CartReponsive.css">
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <title>Giỏ Hàng</title>
 </head>
 <body>
     <div class='wrapper'>
@@ -22,7 +27,7 @@
                     </a>
                 </div>
                 <div class='navbar-item'>
-                    <a href='./About.html' class='navbar-container'>
+                    <a href='../About/About.html' class='navbar-container'>
                         <p class ='navbar-content'>GIỚI THIỆU</p>
                     </a>
                 </div>
@@ -57,8 +62,70 @@
             </div>
         </div>
 
+        <!-- mobile header -->
+        <div class="mobile-header">
+            <nav class="navbar">
+                <div class='mobile-header-logo'>
+                    <a href='/index.html' class ='mobile-header-logo-container'>
+                        <img class ='mobile-header-logo-content' src="../../assets/images/logoOnlyDesc.svg" alt="GongCha" />
+                    </a>
+                </div>
+                <div class="menu-btn">
+                     <a href="#" class="menu-link ">
+                        <span class="line line-1"></span>
+                        <span class="line line-2"></span>
+                        <span class="line line-3"></span>
+                     </a>
+                </div>
+                <ul class="mobile-navbar-items">
+                    <li class='mobile-navbar-item'>
+                        <a href='/Page/Login/Login.html' class='mobile-login-container'>
+                            <p class ='mobile-navbar-content'>Đăng nhập</p>
+                        </a>
+                    </li>
+                    <!-- <li class='mobile-navbar-item'> 
+                        <div class ='mobile-action-container'>
+                            <a href='/Page/Profile/Profile.html' class="mobile-user-icon-container">
+                                <img src="./assets/icons//userIcon.svg" class="mobile-user-icon">
+                                <p class = 'mobile-user-name'>huy</p>
+                            </a>
+                        </div> 
+                    </li> 
+                    <li class='mobile-navbar-item'> 
+                        <div class ='mobile-action-container'>
+                            <a href='/Page/Cart/Cart.html' class="mobile-cart-container">
+                                <p class ='mobile-navbar-content'>Giỏ hàng</p>
+                            </a>
+                        </div> 
+                    </li>  -->
+                    <li class='mobile-navbar-item'>
+                        <a href='/index.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Trang chủ</p>
+                        </a>
+                    </li>
+                    <li class='mobile-navbar-item'>
+                        <a href='../../Page/About/About.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Giới thiệu</p>
+                        </a>
+                    </li>
+                    <li class='mobile-navbar-item'>
+                        <a href='/Page/Product/Product.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Thực đơn</p>
+                        </a>
+                    </li>
+                    <li class ='mobile-navbar-item'>
+                        <a href='/Page/Connect/Connect.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Liên Hệ</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
         <div class='pageheading-container'>
-            <img class='pageheading-img' src='../../assets/images/cartPageHeading.svg' alt="PageHeading" />
+            <div class="pageheading-img-container">
+                <img class='pageheading-img' src='../../assets/images/cartPageHeading.svg' alt="PageHeading" />
+            </div>
             <div class='pageheading-content'>
                 <h2 class='pageheading-title'>GIỎ HÀNG</h2>
                 <p class='pageheading-desc'>Thanh toán và nhận hàng ngay trong ngày</p>
@@ -81,7 +148,7 @@
 
         <!-- cart -->
         <div class="cart">
-            <div class="cart-container">
+            <div class="cart-wrapper">
                 <div class="cart-heading">
                     <div class="cart-heading-name">Sản phẩm</div>
                     <div class="cart-heading-price">Đơn giá</div>
@@ -138,21 +205,24 @@
                     <div class="pay-details">
                         <div class="pay-products-container">
                             <h4 class="pay-products-desc">Tổng tiền hàng:</h4>
-                            <p class="pay-products">30.000
+                            <div class="products-price-container">
+                                <p class="pay-products">30.000</p>
                                 <span>đ</span>
-                            </p>
+                            </div>
                         </div>
                         <div class="pay-ship-container">
                             <h4 class="pay-ship-desc">Phí vận chuyển:</h4>
-                            <p class="pay-ship">30.000
+                            <div class="ship-container">
+                                <p class="pay-ship">30.000</p>
                                 <span>đ</span>
-                            </p>
+                            </div>
                         </div>
                         <div class="pay-voucher-container">
                             <h4 class="pay-voucher-desc">Voucher giảm giá:</h4>
-                            <p class="pay-voucher">30.000
+                            <div class="voucher-price-container">
+                                <p class="pay-voucher">0</p>
                                 <span>đ</span>
-                            </p>
+                            </div>
                         </div>
                     </div>
                     <div class="pay-total-container">
@@ -169,11 +239,16 @@
                         <img src="../../assets/images/payMethod4.svg" alt="payMethod4">
                     </div>
                     <div class="pay-submit-container">
-                        <p class="pay-submit">thanh toán</p>
+                        <button class="pay-submit">thanh toán</button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="goUp-btn">
+            <img src="../../assets/icons/goUpIcon.svg" alt="">
+        </div>
+
 
         <div class='footer'>
             <div class='footer-logo'>

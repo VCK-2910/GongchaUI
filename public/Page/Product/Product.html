@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon.ico">
     <link rel="stylesheet" href="./Product.css">
+    <link rel="stylesheet" href="./ProductReponsive.css">
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <title>Thực Đơn</title>
 </head>
 <body>
     <div class='wrapper'>
@@ -60,8 +62,70 @@
             </div>
         </div>
 
+         <!-- mobile header -->
+         <div class="mobile-header">
+            <nav class="navbar">
+                <div class='mobile-header-logo'>
+                    <a href='/index.html' class ='mobile-header-logo-container'>
+                        <img class ='mobile-header-logo-content' src="../../assets/images/logoOnlyDesc.svg" alt="GongCha" />
+                    </a>
+                </div>
+                <div class="menu-btn">
+                    <a href="#" class="menu-link ">
+                        <span class="line line-1"></span>
+                        <span class="line line-2"></span>
+                        <span class="line line-3"></span>
+                    </a>
+                </div>
+                <ul class="mobile-navbar-items">
+                    <li class='mobile-navbar-item'>
+                        <a href='/Page/Login/Login.html' class='mobile-login-container'>
+                            <p class ='mobile-navbar-content'>Đăng nhập</p>
+                        </a>
+                    </li>
+                    <!-- <li class='mobile-navbar-item'> 
+                        <div class ='mobile-action-container'>
+                            <a href='/Page/Profile/Profile.html' class="mobile-user-icon-container">
+                                <img src="./assets/icons//userIcon.svg" class="mobile-user-icon">
+                                <p class = 'mobile-user-name'>huy</p>
+                            </a>
+                        </div> 
+                    </li> 
+                    <li class='mobile-navbar-item'> 
+                        <div class ='mobile-action-container'>
+                            <a href='/Page/Cart/Cart.html' class="mobile-cart-container">
+                                <p class ='mobile-navbar-content'>Giỏ hàng</p>
+                            </a>
+                        </div> 
+                    </li>  -->
+                    <li class='mobile-navbar-item'>
+                        <a href='/index.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Trang chủ</p>
+                        </a>
+                    </li>
+                    <li class='mobile-navbar-item'>
+                        <a href='../../Page/About/About.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Giới thiệu</p>
+                        </a>
+                    </li>
+                    <li class='mobile-navbar-item'>
+                        <a href='/Page/Product/Product.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Thực đơn</p>
+                        </a>
+                    </li>
+                    <li class ='mobile-navbar-item'>
+                        <a href='/Page/Connect/Connect.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Liên Hệ</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
         <div class='pageheading-container'>
-            <img class='pageheading-img' src='../../assets/images/ProductPageHeading.svg' alt="PageHeading" />
+            <div class="pageheading-img-container">
+                <img class='pageheading-img' src='../../assets/images/ProductPageHeading.svg' alt="PageHeading" />
+            </div>
             <div class='pageheading-content'>
                 <h2 class='pageheading-title'>MENU HIỆN TẠI</h2>
                 <p class='pageheading-desc'>Giới thiệu thức uống hấp dẫn và đa dạng từ Gong Cha</p>
@@ -85,11 +149,9 @@
         <!-- product -->
         <div class='product'>
             <div class='inner'>
-                <div class='taskbar'
-                >
+                <div class='taskbar'>
                     <ul class='taskbar-items'>
-                        <li
-                            class='taskbar-item'
+                        <li class='taskbar-item'
                             data-target='#kem'
                         >
                             <img src="../../assets/icons/milkteaIcon.svg"/>
@@ -250,6 +312,11 @@
                 </form>
             </div>
         </div>
+
+        <div class="goUp-btn">
+            <img src="../../assets/icons/goUpIcon.svg" alt="">
+        </div>
+
 
         <div class='footer'>
             <div class='footer-logo'>

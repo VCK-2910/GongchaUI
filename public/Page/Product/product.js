@@ -17,6 +17,98 @@ function handleTaskbarItemClick(event) {
     }
 }
 
+//handle add to cart logined
+var prevUserAccount = JSON.parse(localStorage.getItem('prevUserAccount'));
+const allProduct = document.querySelectorAll('.product-container');
+allProduct.forEach((container) => {
+    container.addEventListener('click', () => {
+        var loginForm = document.querySelector('.login-wrapper');
+
+        if (!prevUserAccount) {
+            loginForm.style.display = 'flex';
+            window.addEventListener('scroll', function () {
+                window.scrollTo(0, 0);
+            });
+            alert('bạn cần đăng nhập trước khi mua hàng hiểu ko ?');
+        } else {
+            loginForm.style.display = 'none';
+        }
+    });
+});
+
+var inputs = document.querySelectorAll('.login-input input');
+var checkbox = document.querySelector('.login-checked input');
+var submitButton = document.querySelector('.login-submit .submit');
+
+var nameInput = document.querySelector('.login-input-name input');
+var passwordInput = document.querySelector('.login-input-password input');
+
+var userAccounts = JSON.parse(localStorage.getItem('useraccounts'));
+
+// Sự kiện khi giá trị của các input thay đổi
+inputs.forEach(function (input) {
+    input.addEventListener('input', function () {
+        if (input.value.trim() !== '') {
+            input.classList.add('input-valued');
+            input.nextElementSibling.classList.add('line-valued');
+        } else {
+            input.classList.remove('input-valued');
+            input.nextElementSibling.classList.remove('line-valued');
+        }
+        // Kiểm tra điều kiện để thêm class "submitted" cho submitButton
+        checkSubmit();
+    });
+});
+
+// Sự kiện khi trạng thái của checkbox thay đổi
+checkbox.addEventListener('change', function () {
+    // Kiểm tra điều kiện để thêm class "submitted" cho submitButton
+    checkSubmit();
+});
+
+// Hàm kiểm tra điều kiện để thêm class "submitted" cho submitButton
+function checkSubmit() {
+    var allInputsValued = true;
+    inputs.forEach(function (input) {
+        if (input.value.trim() === '') {
+            allInputsValued = false;
+        }
+    });
+
+    if (allInputsValued && checkbox.checked) {
+        submitButton.classList.add('submitted');
+    } else {
+        submitButton.classList.remove('submitted');
+    }
+}
+
+submitButton.addEventListener('click', function () {
+    var username = nameInput.value.trim();
+    var password = passwordInput.value.trim();
+
+    // Kiểm tra xem người dùng đã nhập tên người dùng và mật khẩu chưa
+    if (username !== '' && password !== '') {
+        // Kiểm tra từng tài khoản trong mảng userAccounts
+        for (var i = 0; i < userAccounts.length; i++) {
+            var account = userAccounts[i];
+            // So sánh tên người dùng và mật khẩu
+            if (username === account.name && password === account.password) {
+                // Xóa dữ liệu prevUserAccount từ local storage
+                localStorage.removeItem('prevUserAccount');
+                // Lưu tài khoản đăng nhập vào local storage
+                localStorage.setItem('prevUserAccount', JSON.stringify(account));
+                // Chuyển hướng về trang chính
+                window.location.href = '../Product/Product.html';
+                return; // Kết thúc vòng lặp khi tìm thấy tài khoản hợp lệ
+            }
+        }
+        // Hiển thị thông báo nếu không tìm thấy tài khoản hợp lệ
+        alert('Tên người dùng hoặc mật khẩu không đúng');
+    } else {
+        alert('Vui lòng nhập tên người dùng và mật khẩu');
+    }
+});
+
 // Function to handle product click and save to localStorage
 function handleProductClick(event) {
     const productTitle = event.currentTarget.querySelector('.product-title').textContent;
@@ -28,6 +120,7 @@ function handleProductClick(event) {
 
     // Check if the product already exists in localStorage
     const existingProductIndex = userProducts.findIndex((product) => product.title === productTitle);
+
     if (existingProductIndex !== -1) {
         // If product exists, update its quantity and price
         userProducts[existingProductIndex].quantity += 1;
@@ -88,7 +181,9 @@ function checkLocalStorage() {
 
         var userNamePara = document.createElement('p');
         userNamePara.setAttribute('class', 'navbar-container');
-        userNamePara.textContent = prevUserAccount.name;
+        // Lấy phần tên đầu tiên của người dùng
+        var firstName = prevUserAccount.name.split(' ')[0];
+        userNamePara.textContent = firstName;
 
         actionContainer.appendChild(userIcon);
         actionContainer.appendChild(userNamePara);
@@ -107,94 +202,7 @@ function checkLocalStorage() {
     }
 }
 
-var prevUserAccount = JSON.parse(localStorage.getItem('prevUserAccount'));
-var loginForm = document.querySelector('.login-wrapper');
-
-if (!prevUserAccount) {
-    loginForm.style.display = 'flex';
-    window.addEventListener('scroll', function () {
-        window.scrollTo(0, 0);
-    });
-} else {
-    loginForm.style.display = 'none';
-}
-
 checkLocalStorage();
-
-document.addEventListener('DOMContentLoaded', function () {
-    var inputs = document.querySelectorAll('.login-input input');
-    var checkbox = document.querySelector('.login-checked input');
-    var submitButton = document.querySelector('.login-submit .submit');
-
-    var nameInput = document.querySelector('.login-input-name input');
-    var passwordInput = document.querySelector('.login-input-password input');
-
-    var userAccounts = JSON.parse(localStorage.getItem('useraccounts'));
-
-    // Sự kiện khi giá trị của các input thay đổi
-    inputs.forEach(function (input) {
-        input.addEventListener('input', function () {
-            if (input.value.trim() !== '') {
-                input.classList.add('input-valued');
-                input.nextElementSibling.classList.add('line-valued');
-            } else {
-                input.classList.remove('input-valued');
-                input.nextElementSibling.classList.remove('line-valued');
-            }
-            // Kiểm tra điều kiện để thêm class "submitted" cho submitButton
-            checkSubmit();
-        });
-    });
-
-    // Sự kiện khi trạng thái của checkbox thay đổi
-    checkbox.addEventListener('change', function () {
-        // Kiểm tra điều kiện để thêm class "submitted" cho submitButton
-        checkSubmit();
-    });
-
-    // Hàm kiểm tra điều kiện để thêm class "submitted" cho submitButton
-    function checkSubmit() {
-        var allInputsValued = true;
-        inputs.forEach(function (input) {
-            if (input.value.trim() === '') {
-                allInputsValued = false;
-            }
-        });
-
-        if (allInputsValued && checkbox.checked) {
-            submitButton.classList.add('submitted');
-        } else {
-            submitButton.classList.remove('submitted');
-        }
-    }
-
-    submitButton.addEventListener('click', function () {
-        var username = nameInput.value.trim();
-        var password = passwordInput.value.trim();
-
-        // Kiểm tra xem người dùng đã nhập tên người dùng và mật khẩu chưa
-        if (username !== '' && password !== '') {
-            // Kiểm tra từng tài khoản trong mảng userAccounts
-            for (var i = 0; i < userAccounts.length; i++) {
-                var account = userAccounts[i];
-                // So sánh tên người dùng và mật khẩu
-                if (username === account.name && password === account.password) {
-                    // Xóa dữ liệu prevUserAccount từ local storage
-                    localStorage.removeItem('prevUserAccount');
-                    // Lưu tài khoản đăng nhập vào local storage
-                    localStorage.setItem('prevUserAccount', JSON.stringify(account));
-                    // Chuyển hướng về trang chính
-                    window.location.href = '../Product/Product.html';
-                    return; // Kết thúc vòng lặp khi tìm thấy tài khoản hợp lệ
-                }
-            }
-            // Hiển thị thông báo nếu không tìm thấy tài khoản hợp lệ
-            alert('Tên người dùng hoặc mật khẩu không đúng');
-        } else {
-            alert('Vui lòng nhập tên người dùng và mật khẩu');
-        }
-    });
-});
 
 //found search
 // Lấy giá trị từ localStorage
@@ -330,3 +338,105 @@ document.addEventListener('click', function (e) {
 });
 
 localStorage.removeItem('prevSearchProduct');
+
+//handle go up.
+const goUpBtn = document.querySelector('.goUp-btn');
+
+function scrollFunction() {
+    if (window.scrollY > 400) {
+        goUpBtn.style.display = 'block';
+    } else {
+        goUpBtn.style.display = 'none';
+    }
+}
+
+scrollFunction();
+
+window.addEventListener('scroll', scrollFunction);
+
+goUpBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+});
+
+//handle mobile header
+const menuBtn = document.querySelector('.menu-btn');
+const mobileNavbarItems = document.querySelector('.mobile-navbar-items');
+const mobileLoginContainer = document.querySelector('.mobile-login-container');
+
+menuBtn.addEventListener('click', () => {
+    if (mobileNavbarItems.style.display === 'none' || mobileNavbarItems.style.display === '') {
+        mobileNavbarItems.style.display = 'block';
+    } else {
+        mobileNavbarItems.style.display = 'none';
+    }
+});
+
+//handle mobile logined
+function mobileLogined() {
+    var prevUserAccount = JSON.parse(localStorage.getItem('prevUserAccount'));
+    if (prevUserAccount) {
+        mobileLoginContainer.closest('li').style.display = 'none';
+        // Function to create the first li element
+        function createFirstLiElement() {
+            const profileNav = document.createElement('li');
+            profileNav.classList.add('mobile-navbar-item');
+
+            const profileContainer = document.createElement('div');
+            profileContainer.classList.add('mobile-action-container');
+
+            const profilePageLink = document.createElement('a');
+            profilePageLink.href = '/Page/Profile/Profile.html';
+            profilePageLink.classList.add('mobile-user-icon-container');
+
+            const profileIcon = document.createElement('img');
+            profileIcon.src = '../../assets/icons/userIcon.svg';
+            profileIcon.classList.add('mobile-user-icon');
+
+            const profiledesc = document.createElement('p');
+            profiledesc.classList.add('mobile-user-name');
+            profiledesc.textContent = 'huy';
+
+            profilePageLink.appendChild(profileIcon);
+            profilePageLink.appendChild(profiledesc);
+            profileContainer.appendChild(profilePageLink);
+            profileNav.appendChild(profileContainer);
+
+            return profileNav;
+        }
+
+        // Function to create the second li element
+        function createSecondLiElement() {
+            const cartNav = document.createElement('li');
+            cartNav.classList.add('mobile-navbar-item');
+
+            const cartContainer = document.createElement('div');
+            cartContainer.classList.add('mobile-action-container');
+
+            const cartPageLink = document.createElement('a');
+            cartPageLink.href = '/Page/Cart/Cart.html';
+            cartPageLink.classList.add('mobile-cart-container');
+
+            const cartDesc = document.createElement('p');
+            cartDesc.classList.add('mobile-navbar-content');
+            cartDesc.textContent = 'Giỏ hàng';
+
+            cartPageLink.appendChild(cartDesc);
+            cartContainer.appendChild(cartPageLink);
+            cartNav.appendChild(cartContainer);
+
+            return cartNav;
+        }
+
+        // Create the li elements
+        const profileNav = createFirstLiElement();
+        const cartNav = createSecondLiElement();
+
+        // Insert the li elements at the top of the mobile-navbar-items element
+        mobileNavbarItems.insertBefore(cartNav, mobileNavbarItems.firstChild);
+        mobileNavbarItems.insertBefore(profileNav, mobileNavbarItems.firstChild);
+    }
+}
+mobileLogined();

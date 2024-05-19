@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon.ico">
     <link rel="stylesheet" href="./Profile.css">
+    <link rel="stylesheet" href="./ProfileReponsive.css">
     <link rel="stylesheet" href="../../assets/css/global.css">
-    <link rel="stylesheet" href="../Login/Login.html">
-    <title>Document</title>
+    <title>Thông Tin Cá Nhân</title>
 </head>
 <body>
     <div class='wrapper'>
@@ -59,14 +63,162 @@
             </div>
         </div>
 
+        <!-- mobile header -->
+        <div class="mobile-header">
+            <nav class="navbar">
+                <div class='mobile-header-logo'>
+                    <a href='/index.html' class ='mobile-header-logo-container'>
+                        <img class ='mobile-header-logo-content' src="../../assets/images/logoOnlyDesc.svg" alt="GongCha" />
+                    </a>
+                </div>
+                <div class="menu-btn">
+                     <a href="#" class="menu-link ">
+                        <span class="line line-1"></span>
+                        <span class="line line-2"></span>
+                        <span class="line line-3"></span>
+                     </a>
+                </div>
+                <ul class="mobile-navbar-items">
+                    <li class='mobile-navbar-item'>
+                        <a href='/Page/Login/Login.html' class='mobile-login-container'>
+                            <p class ='mobile-navbar-content'>Đăng nhập</p>
+                        </a>
+                    </li>
+                    <!-- <li class='mobile-navbar-item'> 
+                        <div class ='mobile-action-container'>
+                            <a href='/Page/Profile/Profile.html' class="mobile-user-icon-container">
+                                <img src="./assets/icons//userIcon.svg" class="mobile-user-icon">
+                                <p class = 'mobile-user-name'>huy</p>
+                            </a>
+                        </div> 
+                    </li> 
+                    <li class='mobile-navbar-item'> 
+                        <div class ='mobile-action-container'>
+                            <a href='/Page/Cart/Cart.html' class="mobile-cart-container">
+                                <p class ='mobile-navbar-content'>Giỏ hàng</p>
+                            </a>
+                        </div> 
+                    </li>  -->
+                    <li class='mobile-navbar-item'>
+                        <a href='/index.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Trang chủ</p>
+                        </a>
+                    </li>
+                    <li class='mobile-navbar-item'>
+                        <a href='../../Page/About/About.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Giới thiệu</p>
+                        </a>
+                    </li>
+                    <li class='mobile-navbar-item'>
+                        <a href='/Page/Product/Product.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Thực đơn</p>
+                        </a>
+                    </li>
+                    <li class ='mobile-navbar-item'>
+                        <a href='/Page/Connect/Connect.html' class='mobile-navbar-container'>
+                            <p class ='mobile-navbar-content'>Liên Hệ</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class='pageheading-container'>
+            <div class="pageheading-img-container">
+                <img class='pageheading-img' src='../../assets/images/ProfilePageHeading.svg' alt="PageHeading" />
+            </div>
+        </div>
+
         <!-- profile -->
-        <div>1123</div>
-        <div>1123</div>
-        <div>1123</div>
-        <div>1123</div>
-        <div>1123</div>
-        <div>1123</div>
-        <button class="logout-btn">log out</button>
+        <div class="profile-wrapper">
+            <div class='avatar-wrapper'>
+                <div class="avatar-container">
+                    <img class="profile-pic" src="" alt="">
+                    <div class="upload-button">
+                        <img src="" alt="">
+                    </div>
+                    <input class="pic-upload" type="file" accept="image/*">
+                </div>
+                <div class="user-name-container">
+                    <h4 class="profile-user-name"></h4>
+                </div>
+                <div class="logout-container">
+                    <button class="logout-btn">Đăng xuất</button>
+                </div>
+            </div>
+            <div class="info-container">
+                <div class="basic-info-container">
+                    <div class="basic-info-title-container">
+                        <h4 class="basic-info-title">THÔNG TIN CƠ BẢN</h4>
+                    </div>
+                    <div class="basic-info-name-container">
+                        <input class='name-input' type="text"/>
+                        <div class='label-line'>
+                            Họ và tên thành viên
+                        </div>
+                    </div>
+                    <div class="coloum2 mobile-cloumn1">
+                        <div class="gender-info-container">
+                            <div class="dropdown">
+                                <div class="gender-select-cotainer">
+                                    <span class="gender-selected">Giới Tính</span>
+                                    <img class="gender-icon" src="../../assets/icons/arrowRightLogIcon.svg" alt="">
+                                </div>
+                                <input class="gender-select" type="hidden" name="gender">
+                                <ul class="dropdown-menu">
+                                    <li id="Nữ">Nữ</li>
+                                    <li id="Nam">Nam</li>
+                                    <li id="Khác">Khác</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="birthdate-info">
+                            <input class='birthdate-input' type="date">
+                            <div class='label-line' id="label-line"></div>
+                        </div>
+                    </div>
+                    <div class="basic-info-detail-container">
+                        <textarea class='detail-input'></textarea>
+                        <div class='label-line'>
+                            Thông tin chi tiết
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-info-container">
+                    <div class="contact-info-title-container">
+                        <h4 class="contact-info-title">THÔNG TIN LIÊN HỆ</h4>
+                    </div>
+                    <div class="coloum2 mobile-cloumn1">
+                        <div class='phone-info'>
+                            <input class='phone-input'type="text"/>
+                            <div class='label-line'>
+                                Số điện thoại
+                            </div>
+                        </div>
+                        <div class='email-info'>
+                            <input class='email-input'type="text"/>
+                            <div class='label-line'>
+                                Email
+                            </div>
+                        </div>
+                    </div>
+                    <div class='address-info'>
+                        <input class='address-input'type="text"/>
+                        <div class='label-line'>
+                            Địa chỉ
+                        </div>
+                    </div>
+                </div>
+                <div class="info-save-container">
+                    <button class="info-save-btn">Lưu thông tin</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="goUp-btn">
+            <img src="../../assets/icons/goUpIcon.svg" alt="">
+        </div>
+
 
         <div class='footer'>
             <div class='footer-logo'>
