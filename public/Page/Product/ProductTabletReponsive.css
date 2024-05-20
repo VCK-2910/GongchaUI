@@ -69,6 +69,11 @@
         margin-top: 4px;
     }
 
+    .login-inner {
+        width: 80%;
+        height: 65%;
+    }
+
 /* tablet footer */
     .footer {
         width: 100%;
