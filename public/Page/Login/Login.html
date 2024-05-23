@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+    <link rel="stylesheet" href="./Login.css">
+    <link rel="stylesheet" href="./LoginReponsive.css">
+    <link rel="stylesheet" href="./LoginTabletReponsive.css">
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <title>Đăng nhập</title>
+</head>
+<body>
+    <div class='wrapper'>
+        <div class='inner'>
+            <form class='login'>
+                <div class='login-title'>
+                    <a href="../../index.html">
+                        <img src='../../assets/images/logoOnly.svg' alt="logo" />
+                    </a>
+                    <div class='title'>Đăng nhập</div>
+                </div>
+                <div class='login-action'>
+                    <div class='login-input'>
+                        <div class='login-input-email'>
+                            <input class="emailInput" type="text"/>
+                            <div class= 'label-line' > Email </div>
+                        </div>
+                        <div class='login-input-password'>
+                            <input type="password" class="passwordInput" />
+                            <div class= 'label-line' > MẬT KHẨU </div>
+                        </div>
+                       
+                        <div class='login-socials'> 
+                            <div class='login-social background-blue margin-right'>
+                                <img src="../../assets/icons/registerFacebookIcon.svg">
+                            </div>
+                            <div class='login-social margin-left'>
+                               <img src="../../assets/icons/googleIcon.svg">
+                            </div>
+                        </div>
+
+                        <div class='login-checked'>
+                            <input type="checkbox" />
+                            <p class='checked-desc'>LƯU ĐĂNG NHẬP</p>
+                        </div>
+                    </div>
+                    <div class='login-submit'>
+                        <div class='submit'>
+                            <svg class='submit-icon' width="32" height="25" viewBox="0 0 32 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.4805 1.58398L16.5645 0.5C17.0234 0.0410156 17.7656 0.0410156 18.2197 0.5L30.0957 10.8315C30.5547 11.2905 30.5547 12.0327 30.0957 12.4868L18.2197 23.5C17.7607 23.959 17.0186 23.959 16.5645 23.5L15.4805 22.521C15.0166 22.0571 15.0264 21.1953 15.5 20.7412L23 13.6147H3.00005C2.35064 13.6147 2 13.1362 2 12.4868V10.8315C2 10.1821 2.35061 9.7085 3.00003 9.7085H23L15.5 3.25879C15.0215 2.80469 15.0117 2.04785 15.4805 1.58398Z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class='login-error'>
+                        <span class='error-action'>KHÔNG THỂ ĐĂNG NHẬP ?</span>
+                        <a href="../Register/Register.html">
+                            <span class='error-action'>
+                                BẠN CHƯA CÓ TÀI KHOẢN ? ĐĂNG KÝ
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="./Login.js"></script>
+</html>
